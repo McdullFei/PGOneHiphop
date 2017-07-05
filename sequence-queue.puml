@@ -1,0 +1,23 @@
+@startuml
+
+header
+atlas module引用顺序
+endheader
+
+class atlas_base
+
+ common_utils -up-> framework
+ framework -up-> business
+ framework -up-> admin
+ common_utils -up-> business
+ common_utils -up-> admin
+
+
+
+legend
+# common_utils\framework 为最底层module
+# admin 处理运营后台业务
+# business 处理产品业务,后期产品线自行根据业务拆模块
+endlegend
+
+@enduml
