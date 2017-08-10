@@ -1,4 +1,4 @@
-package com.atlas.business;
+package com.atlas.business.session;
 
 import com.atlas.business.dto.User;
 import com.atlas.framework.common.JsonSerializer;

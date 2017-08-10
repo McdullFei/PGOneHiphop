@@ -23,7 +23,7 @@ public class UserDao {
             while(resultSet.next()){
                 User user = new User();
                 user.setId(resultSet.getLong("id"));
-                user.setUserName(resultSet.getString("userName"));
+                user.setUsername(resultSet.getString("userName"));
                 user.setAge(resultSet.getInt("age"));
 
                 list1.add(user);

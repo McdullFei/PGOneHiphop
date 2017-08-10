@@ -30,7 +30,7 @@ public class GuavaCache {
 		Cache<K, V> cache = CacheBuilder.newBuilder().maximumSize(maxSize)
 				.expireAfterWrite(expireAfterWrite, TimeUnit.MILLISECONDS).removalListener(new RemovalListener<K, V>() {
 					public void onRemoval(RemovalNotification<K, V> rn) {
-						log.debug("guava cache: " + rn.getKey() + " has bean removed!");
+						log.debug("guava session: " + rn.getKey() + " has bean removed!");
 					}
 				}).build();
 		return cache;

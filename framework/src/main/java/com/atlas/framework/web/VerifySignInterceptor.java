@@ -102,23 +102,23 @@ public class VerifySignInterceptor extends HandlerInterceptorAdapter {
 
                     stringBuilder.append(key).append(temp.get(key)[0]);
 
-                    logger.debug("测试日志：" + key + ":" + temp.get(key));
+                    logger.info("测试日志：" + key + ":" + temp.get(key));
                 }
 
                 String serverSign = DigestUtils.md5Hex(stringBuilder.toString());//使用apache common标准类库中的md5方法
 
-                logger.debug("测试日志：正确的sign：" + serverSign);
+                logger.info("测试日志：正确的sign：" + serverSign);
 
                 if (appSign.equalsIgnoreCase(serverSign)) {
                     // 太棒了，签名验证成功，去下一个逻辑
                     // FIXME 此处还可以再次验证参数的合法性，然后把参数全部弄好，传递到request setAttribute
 
-                    logger.debug("牛逼牛逼,签名验证成功!");
+                    logger.info("牛逼牛逼,签名验证成功!");
                 } else {
 
                     // FIXME 这里也可以根据客户端异常返回码针对sign为null的情况提示错误信息给客户端
 
-                    logger.debug("--invalid sign");
+                    logger.info("--invalid sign");
                     return false;
                 }
             }

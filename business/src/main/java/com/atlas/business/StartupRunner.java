@@ -16,7 +16,6 @@ import javax.sql.DataSource;
  * Created by renfei on 17/6/5.
  */
 @Component
-@Order(value=10000)
 public class StartupRunner implements CommandLineRunner {
     protected static final Logger logger = LoggerFactory.getLogger(StartupRunner.class);
 

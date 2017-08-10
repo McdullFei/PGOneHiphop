@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/spring-bean.xml")
-public class Test extends TestCase {
+public class VerifySignInterceptorTest extends TestCase {
 
     @org.junit.Test
     public void t1() throws Exception {
@@ -24,17 +24,17 @@ public class Test extends TestCase {
         System.out.println(j.deserialize(sss, User.class).toString());
 
 
-        System.out.println(Long.parseLong("55bb9b80", 16));
+        System.out.println(Long.parseLong("55bb9b80", 16));//16转10
 
-        System.out.println(Long.toHexString(1498120200));
+        System.out.println(Long.toHexString(1502359200));// 时间戳转16
 
 
 
         //http://127.0.0.1:10086/hello?d=oooo&a=1111&t=594b8008&sign=22
 
 
-        String serverSign = new String(DigestUtils.md5Hex("/helloa1111doooot594b8008"));
-        System.out.println(serverSign);
+        String serverSign = new String(DigestUtils.md5Hex("/user/2t"+Long.toHexString(1502359200)));
+        System.out.println(serverSign.toUpperCase());
     }
 
 

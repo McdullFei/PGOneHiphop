@@ -60,6 +60,15 @@ public class BusinessApplicationTests {
 
 	}
 
+	@Test
+	public void getUserById() throws Exception{
+		RequestBuilder request = get("/user/2?sign=67E211CD5222A22C869207DFD613E794&t=598c2ea0");
+		mvc.perform(request)
+				.andExpect(status().isOk())
+				.andExpect(content().string(equalTo("[]")));
+
+	}
+
 	@Autowired
 	private HttpClientFactory httpClientFactory;
 

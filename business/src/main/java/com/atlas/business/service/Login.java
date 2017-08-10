@@ -6,5 +6,5 @@ package com.atlas.business.service;
  * Created by renfei on 17/6/7.
  */
 public interface Login {
-    <T> T login();
+    <T> T login(String username, String password);
 }

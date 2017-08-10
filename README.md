@@ -35,6 +35,17 @@ atlas服务端基础框架
 
 
 
+
+## 20170810更新
+- 增加url防盗链
+    - VerifySignInterceptor 实现类
+    - 通过路径和访问参数的hash和url有效时间设置来保证防盗链
+    - 单元测试需要带sign和t
+- 增加返回参数的json封装
+- 增加统一异常处理
+
+
+
 ## TODO sso,统一认证系统;oauth
 - 使用jwt代替https进行sso认证(反向代理服务无法缓存https,证书也难以维护)
     - jwt经常用于设计用户认证和授权系统(登陆\api)，甚至实现Web应用的单点登录。
