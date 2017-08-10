@@ -9,4 +9,12 @@ public interface UserRepository extends CrudRepository<User, Long> {
      * @return
      */
     User findUserById(Long id);
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    User findUserByUsernameAndPassword(String username, String password);
 }

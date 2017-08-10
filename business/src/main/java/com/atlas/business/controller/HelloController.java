@@ -1,6 +1,7 @@
 package com.atlas.business.controller;
 
 import com.atlas.business.dto.User;
+import com.atlas.business.meta.UserBean;
 import com.atlas.business.service.IUserService;
 import com.atlas.core.web.AcResult;
 import com.atlas.framework.common.http.HttpClientFactory;
@@ -27,9 +28,9 @@ public class HelloController {
 
     @ApiOperation(value="测试session", notes="")
     @RequestMapping(value = "/hello", method= RequestMethod.GET)
-    @ResponseBody public AcResult index() {
+    @ResponseBody public AcResult index(@RequestParam("sKey") String sKey) {
 
-        User user = userService.getUserFromSession("73638f8a55dc4f81a8722b6d908ea9a7");
+        User user = userService.getUserFromSession(sKey);
 
         logger.error("的后端后端好得很的");
 
@@ -57,6 +58,14 @@ public class HelloController {
         List<User> list = userService.getAllUser();
 
         return AcResult.ok(list);
+    }
+
+    @ApiOperation(value="登陆", notes="")
+    @RequestMapping(value = "/login", method= RequestMethod.POST)
+    @ResponseBody public AcResult login(@RequestBody UserBean userBean) {
+        User user = userService.login(userBean.getUsername(), userBean.getPassword());
+
+        return AcResult.ok(user);
     }
 
 

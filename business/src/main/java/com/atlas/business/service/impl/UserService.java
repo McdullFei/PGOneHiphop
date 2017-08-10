@@ -38,7 +38,7 @@ public class UserService implements IUserService {
     @Override
     public <T> T login(String username, String password) {
         logger.error("用户登录");
-        return (T) userRepository.findUserById(2L);
+        return (T) userRepository.findUserByUsernameAndPassword(username, password);
     }
 
 

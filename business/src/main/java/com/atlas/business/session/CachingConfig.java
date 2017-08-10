@@ -7,7 +7,8 @@ import com.atlas.framework.web.session.UserSessionManager;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang.time.DateUtils;
 import org.msgpack.MessagePack;
-import org.msgpack.template.StringTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
@@ -30,6 +31,7 @@ import java.util.UUID;
 @Component
 @EnableCaching
 public class CachingConfig {
+    private static final Logger logger = LoggerFactory.getLogger(CachingConfig.class);
 
     @Autowired
     JedisConnectionFactory factory;
@@ -74,7 +76,9 @@ public class CachingConfig {
         return new UserSessionManager("userSession", cacheManager(), serializer) {
             @Override
             public String generateSID() {
-                return UUID.randomUUID().toString().replace("-", "");
+                String key = UUID.randomUUID().toString().replace("-", "");
+                logger.info("session key ==>>> {}", key);
+                return key;
             }
 
 

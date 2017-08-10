@@ -35,6 +35,15 @@ public class VerifySignInterceptorTest extends TestCase {
 
         String serverSign = new String(DigestUtils.md5Hex("/user/2t"+Long.toHexString(1502359200)));
         System.out.println(serverSign.toUpperCase());
+
+
+
+        serverSign = new String(DigestUtils.md5Hex("/logint"+Long.toHexString(1502359200)));
+        System.out.println(serverSign.toUpperCase());
+
+
+        serverSign = new String(DigestUtils.md5Hex("/hellosKeyd97638447c074ebe9bf133274fe43b97t"+Long.toHexString(1502359200)));
+        System.out.println(serverSign.toUpperCase());
     }
 
 
