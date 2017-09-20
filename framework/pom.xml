@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>framework</artifactId>
     <packaging>jar</packaging>
-    <name>atlas framework</name>
+    <name>ATLSE - Framework</name>
     <version>1.0.0-SNAPSHOT</version>
 
 

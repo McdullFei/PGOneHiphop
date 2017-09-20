@@ -9,6 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
+    <name>ATLAS - BASE - Project</name>
+
+
+
     <!--安装路径 -->
     <distributionManagement>
 
@@ -106,5 +110,6 @@
         <module>framework</module>
         <module>business</module>
         <module>admin</module>
+      <module>oauth2</module>
     </modules>
 </project>

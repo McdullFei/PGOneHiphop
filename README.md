@@ -45,12 +45,15 @@ atlas服务端基础框架
 - 增加统一异常处理
 
 
+## 20170920更新
+- 增加springboot oauth2.0 demo，使用授权码方式整合jwt
+- 在单独的oauth2 模块中，下面是三个独立spring boot项目，单独启动即可
+- 参考
+   http://blog.leapoahead.com/2015/09/06/understanding-jwt/ 
+   https://lidong1665.github.io/2017/03/14/Spring-Security-OAuth2-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/
 
-## TODO sso,统一认证系统;oauth
-- 使用jwt代替https进行sso认证(反向代理服务无法缓存https,证书也难以维护)
-    - jwt经常用于设计用户认证和授权系统(登陆\api)，甚至实现Web应用的单点登录。
-    - oauth的实现
-    - jjwt和auth0-jwt
-    - http://blog.leapoahead.com/2015/09/06/understanding-jwt/ 
-    
+
+
+## TODO 集成springcloud
+
 
