@@ -12,6 +12,7 @@ atlas服务端基础框架
 - mybatis
 - P6Spy
 - java 8
+- spring oauth2 + jwt
 
 ## 结构说明
 - admin 运营后台(spring-boot)
