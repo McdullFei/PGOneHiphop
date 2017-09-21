@@ -121,14 +121,14 @@ public class AuthenticationConfiguration {
       auth.authenticationProvider(businessUserAuthenticationProvider);
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//      // FIXME 由于没有继承session disable csrf
-//      http.csrf().disable().authorizeRequests()
-//          .antMatchers("/oauth/authorize").authenticated()
-//          .and()
-//          .httpBasic().realmName("OAuth Server");
-//    }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+      // FIXME 由于没有继承session disable csrf
+      http.csrf().disable().authorizeRequests()
+          .antMatchers("/oauth/authorize").authenticated()
+          .and()
+          .httpBasic().realmName("OAuth Server");
+    }
 
     @Override
     @Bean
