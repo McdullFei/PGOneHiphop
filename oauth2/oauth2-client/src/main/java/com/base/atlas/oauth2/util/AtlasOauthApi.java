@@ -30,11 +30,11 @@ public class AtlasOauthApi extends DefaultApi20 {
 
   @Override
   public String getAccessTokenEndpoint() {
-    return "http://127.0.0.1:20622/oauth2/token";
+    return "http://127.0.0.1:20622/oauth/token";
   }
 
   @Override
   protected String getAuthorizationBaseUrl() {
-    return "http://127.0.0.1:20622/oauth2/authorize";
+    return "http://127.0.0.1:20622/oauth/authorize";
   }
 }

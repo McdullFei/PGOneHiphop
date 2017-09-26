@@ -49,9 +49,14 @@ atlas服务端基础框架
 ## 20170920更新
 - 增加springboot oauth2.0 demo，使用授权码方式整合jwt
 - 在单独的oauth2 模块中，下面是三个独立spring boot项目，单独启动即可
+- ps: oauth2.0授权服务的session保存client端，这样需要客户端自己实现登陆。这里也可以使用auth端的登陆，这样需要auth端集成session机制（TODO spring session）
 - 参考
    http://blog.leapoahead.com/2015/09/06/understanding-jwt/ 
    https://lidong1665.github.io/2017/03/14/Spring-Security-OAuth2-%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/
+
+## 20170926更新
+- oauth2服务jwt实现非对称加密
+- oauth2服务jwt协议报文扩充，增加busiId字段（业务需求往往需要扩充jwt报文的情况）
 
 
 
