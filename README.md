@@ -58,6 +58,19 @@ atlas服务端基础框架
 - oauth2服务jwt实现非对称加密
 - oauth2服务jwt协议报文扩充，增加busiId字段（业务需求往往需要扩充jwt报文的情况）
 
+> oauth2 token 非对称加密执行过程
+
+- 生成rsa证书
+
+```java
+keytool -genkeypair -alias atlas -keyalg RSA -keypass atlas123 -keystore atlas.jks -storepass atlas123
+```
+
+- 通过证书到处秘钥
+
+```java
+keytool -list -rfc --keystore atlas.jks | openssl x509 -inform pem -pubkey
+```
 
 
 ## TODO 集成springcloud

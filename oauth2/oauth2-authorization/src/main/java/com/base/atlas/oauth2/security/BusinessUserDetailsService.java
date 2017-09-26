@@ -6,7 +6,6 @@ import com.google.common.collect.Lists;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -47,7 +46,8 @@ public class BusinessUserDetailsService implements UserDetailsService {
           , true
           , true
           , true
-          , authorityCollection);
+          , authorityCollection
+          , String.valueOf(user.getId()));// 增加atlasid
 
       return userDetails;
     } else {

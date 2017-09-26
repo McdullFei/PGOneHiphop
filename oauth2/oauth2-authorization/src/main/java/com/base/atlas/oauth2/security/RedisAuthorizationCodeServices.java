@@ -7,6 +7,8 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.code.RandomValueAuthorizationCodeServices;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 授权码修改为分布式存储，并且修改长度为12位
  *
@@ -21,10 +23,12 @@ public class RedisAuthorizationCodeServices extends RandomValueAuthorizationCode
   @Autowired
   private RandomValueStringGenerator generator;
 
+  private static final long TIMEOUT = 30; // 30分钟
 
   @Override
   protected void store(String code, OAuth2Authentication authentication) {
     jdkRedisTemplate.opsForValue().set(code, authentication);
+    jdkRedisTemplate.expire(code, TIMEOUT, TimeUnit.MINUTES);
   }
 
   @Override
