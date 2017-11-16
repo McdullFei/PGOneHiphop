@@ -9,15 +9,12 @@ import org.springframework.data.redis.serializer.SerializationException;
  */
 public class MessagePackSerializer<T> implements RedisSerializer<T> {
 
-    private MessagePack msgPack;
+    private static final MessagePack msgPack = new MessagePack();
 
-    public void setMsgPack(MessagePack msgPack) {
-        this.msgPack = msgPack;
-    }
+    private Class <T> type;
 
-    public MessagePackSerializer(MessagePack msgPack){
-        this.msgPack = msgPack;
-
+    public MessagePackSerializer(Class <T> type){
+        this .type = type;
     }
 
     @Override
@@ -39,7 +36,7 @@ public class MessagePackSerializer<T> implements RedisSerializer<T> {
             return null;
         }
         try {
-            T t = (T)msgPack.read(bytes);
+            T t = msgPack.read(bytes, type);
             return t;
         } catch (Exception e) {
             throw new SerializationException( "Cannot deserialize" , e);

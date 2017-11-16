@@ -2,11 +2,9 @@ package com.atlas.business.session;
 
 import com.atlas.business.dto.User;
 import com.atlas.framework.common.JsonSerializer;
-import com.atlas.framework.common.redis.MessagePackSerializer;
 import com.atlas.framework.web.session.UserSessionManager;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang.time.DateUtils;
-import org.msgpack.MessagePack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +37,16 @@ public class CachingConfig {
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
-    @Bean
-    public RedisTemplate<String, Object> redisTemplate() {
+    /**
+     * 自定义value序列化方式的template
+     * @return
+     */
+    @Bean(name = "customRedisTemplate")
+    public RedisTemplate redisTemplate() {
         RedisTemplate<String, Object> template = new RedisTemplate();
         template.setConnectionFactory(factory);
         template.setKeySerializer(new StringRedisSerializer());
 
-        MessagePack mp = new MessagePack();
-        template.setValueSerializer(new MessagePackSerializer<>(mp));
         return template;
     }
 

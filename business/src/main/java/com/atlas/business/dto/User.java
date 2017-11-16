@@ -1,11 +1,14 @@
 package com.atlas.business.dto;
 
 
+import org.msgpack.annotation.Message;
+
 import javax.persistence.*;
 
 /**
  * Created by renfei on 17/6/5.
  */
+@Message
 @Table(name = "user")
 @Entity(name = "user")
 public class User {
