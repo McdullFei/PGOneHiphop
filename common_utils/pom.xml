@@ -13,6 +13,15 @@
     <artifactId>common-utils</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.0.5</version>
+        </dependency>
+    </dependencies>
+
 
     <build>
         <plugins>
